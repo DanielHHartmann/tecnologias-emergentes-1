@@ -1,5 +1,8 @@
 import swaggerAutogen from "swagger-autogen";
+import dotenv from "dotenv";
 
+dotenv.config(); 
+const PORT = process.env.PORT || 4040;
 const doc = {
   info: {
     version: "1.0.0",
@@ -8,7 +11,7 @@ const doc = {
   },
   servers: [
     {
-      url: "http://localhost:4040/"
+      url: "http://localhost:" + PORT,
     }
   ],
   components: {
@@ -25,6 +28,13 @@ const doc = {
       Task: {
         description: "",
       },
+      Product: {
+        name: "",
+        description: "",
+        price: 0,
+        category: "",
+        brand: ""
+      }
     },
     securitySchemes: {
       bearerAuth: {

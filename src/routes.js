@@ -10,6 +10,7 @@ import NotFound from "./routes/helper/404.js";
 import AuthRouter from "./routes/authRouter.js";
 import UserRouter from "./routes/userRouter.js";
 import TaskRouter from "./routes/taskRoute.js";
+import ProductRouter from "./routes/productRouter.js";
 
 import { verify } from "./controllers/authController.js";
 
@@ -20,6 +21,7 @@ routes.use(handler);
 
 routes.use("/login", AuthRouter);
 routes.use("/api/users", verify, UserRouter);
+routes.use("/api/products", ProductRouter);
 routes.use("/api/tasks", TaskRouter);
 
 routes.use(InternalServerError);
